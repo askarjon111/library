@@ -3,7 +3,7 @@
         {{ book.title }} by
         {% for author in book.authors.all %}
              {{ author.name }}
-        {% endfor %}
+        {% endfor %} |
 {% endblock %}
 {% block content %}
     <h1>{{ book.title }}</h1>
@@ -13,9 +13,9 @@
              {{ author.name }}
         {% endfor %}
     </h5>
-    <h5>
-        Publisher: {{ company }}
-    </h5>
+    <h5> Publisher: {{ company }} </h5>
+    <h5> Published at: {{ book.published_at }} </h5>
+    <br>
     <p>{{ book.description }}</p>
     {% for cover in book.covers.all %}
         {% if cover.image %}
