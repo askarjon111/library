@@ -11,7 +11,7 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'published_at', 'created_at', 'book_cover')
     readonly_fields = ('book_cover',)
     inlines = [BookCoverInline]
-    
+
     def book_cover(self, obj):
         return obj.book_cover
 

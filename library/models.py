@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.html import mark_safe
-from django.db.models import Q
 from django.utils.text import slugify
+from library.managers import BookManager
 
 
 class Author(models.Model):
@@ -12,11 +12,6 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class BookManager(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(~Q(covers=None))
 
 
 class Book(models.Model):
@@ -41,7 +36,7 @@ class Book(models.Model):
     def book_cover(self):
         try:
             return mark_safe('<img src="%s"/ width="300" height="150">' % self.covers.first().image.url)
-        except:
+        except Exception:
             return 'No cover'
 
 
@@ -51,4 +46,3 @@ class BookCover(models.Model):
 
     def __str__(self):
         return self.book.title
-    
