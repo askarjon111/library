@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from library.models import Book
+from apps.library.models import Book
 
 
 class BookListView(ListView):

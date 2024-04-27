@@ -1,5 +1,5 @@
 from django.contrib import admin
-from library.models import Book, BookCover, Author
+from apps.library.models import Book, BookCover, Author
 
 
 class BookCoverInline(admin.TabularInline):

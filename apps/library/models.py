@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.html import mark_safe
 from django.utils.text import slugify
-from library.managers import BookManager
+from apps.library.managers import BookManager
 
 
 class Author(models.Model):
@@ -35,7 +35,7 @@ class Book(models.Model):
     @property
     def book_cover(self):
         try:
-            return mark_safe('<img src="%s"/ width="300" height="150">' % self.covers.first().image.url)
+            return mark_safe('<img src="%s"/ width="120" height="200">' % self.covers.first().image.url)
         except Exception:
             return 'No cover'
 
